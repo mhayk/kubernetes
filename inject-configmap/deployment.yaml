@@ -22,10 +22,8 @@ spec:
           volumeMounts:
             - mountPath: /input.txt
               name: config
+              subPath: input.txt
       volumes:
         - name: config
           configMap:
             name: nodeserver-configmap-family
-            items:
-              - key: members
-                path: input.txt

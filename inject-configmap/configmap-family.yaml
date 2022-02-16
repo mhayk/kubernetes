@@ -3,4 +3,5 @@ kind: ConfigMap
 metadata:
   name: nodeserver-configmap-family
 data:
-  members: "Mhayk, Alana, Alice, Edimar, Ana, Mhaylson, Mhateus, Thayna, Ravi"
+  input.txt: |
+    "Mhayk, Alana, Alice, Edimar, Ana, Mhaylson, Mhateus, Thayna, Ravi"
