@@ -20,7 +20,7 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts:
-            - mountPath: "./"
+            - mountPath: /input.txt
               name: config
       volumes:
         - name: config
