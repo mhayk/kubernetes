@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeserver
+  labels:
+    app: nodeserver
+spec:
+  selector:
+    matchLabels:
+      app: nodeserver
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "nodeserver"
+    spec:
+      containers:
+        - name: nodeserver
+          image: "mhayk/hello-nodejs:v5.1"
+          ports:
+            - containerPort: 80
+          envFrom:
+            - secretRef:
+                name: nodeserver-secret
+          volumeMounts:
+            - mountPath: /input.txt
+              name: config
+              subPath: input.txt
+      volumes:
+        - name: config
+          configMap:
+            name: nodeserver-configmap-family
